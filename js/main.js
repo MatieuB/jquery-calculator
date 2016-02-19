@@ -1,22 +1,19 @@
 $(document).ready(function() {
-  // console.log("ready!");
-  var result;
-  var numSentence;
+  console.log("ready!");
 
-  $('span').on('click', function() {
-    if ($(this).text() === "=") {
-      ($(this).text() === "");
+  $('.buttons').on('click', function(event) {
+
+    var numSentence = document.getElementById('screen').innerHTML;
+    var answer;
+    var buttonValue = event.target.innerHTML;
+    if (buttonValue == "C") {
+      buttonValue = $('#screen').text('');
+    }
+    if (buttonValue == "=") {
+      answer = eval(numSentence);
+      $('#screen').text(answer);
     } else {
-      $('#screen').append($(this).text());
-    };
-
-    $('#cancel').on('click', function() {
-      $('#screen').text('');
-    });
-    $('#calc').on('click', function() {
-      console.log( $('#screen').text().split().join('').eval());
-      // $('#screen').text(result);
-
-    });
+      $('#screen').append(buttonValue);
+    }
   });
 });
